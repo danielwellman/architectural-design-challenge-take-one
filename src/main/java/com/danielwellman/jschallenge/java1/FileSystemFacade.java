@@ -12,7 +12,7 @@ public class FileSystemFacade implements IoFacade {
 
 
     public String readFile(String filename) {
-        File file = new File(path, filename);
+        File file = fileAt(filename);
         BufferedReader fileReader;
         try {
             fileReader = new BufferedReader(new FileReader(file));
@@ -33,7 +33,7 @@ public class FileSystemFacade implements IoFacade {
     }
 
     public void createFile(String filename, String contents) {
-        File file = new File(path, filename);
+        File file = fileAt(filename);
         FileWriter fileWriter;
         try {
             fileWriter = new FileWriter(file);
@@ -50,7 +50,10 @@ public class FileSystemFacade implements IoFacade {
             } catch (IOException e) {
                 // Silently ignore closing a file?
             }
-
         }
+    }
+
+    private File fileAt(String filename) {
+        return new File(path, filename);
     }
 }
