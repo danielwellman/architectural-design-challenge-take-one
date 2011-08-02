@@ -1,0 +1,8 @@
+Some notes for verifying the solution:
+
+- No Java IO exceptions leak out of the IO facade layer
+- Minimal repetition of the folder names between test and production implementations
+
+
+Later
+- Argument checking?

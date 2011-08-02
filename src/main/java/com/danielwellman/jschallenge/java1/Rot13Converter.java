@@ -2,10 +2,17 @@ package com.danielwellman.jschallenge.java1;
 
 
 public class Rot13Converter {
-    public void convert(String inputFilename, String outputFilename) {
-        // Wondering to myself: Reading a file, converting it, and writing it out feels procedural.
-        // ... Certainly some form of notification system for output feels about right
-        // So what about the "read it, convert it, then notify listeners of the new value?"
+    private IoFacade ioFacade;
+    private Encoder encoder;
 
+    public Rot13Converter(IoFacade ioFacade, Encoder encoder) {
+        this.ioFacade = ioFacade;
+        this.encoder = encoder;
+    }
+
+    public void convert(String inputFilename, String outputFilename) {
+        String source = ioFacade.readFile(inputFilename);
+        String encodedMessage = encoder.encode(source);
+        ioFacade.createFile(outputFilename, encodedMessage);
     }
 }

@@ -12,7 +12,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class FileSystemTester {
 
-    public static final String TEST_FOLDER_PATH = "test_folder";
+    private static final String TEST_FOLDER_PATH = "test_folder";
+
+    public String getTestFolderPath() {
+        return TEST_FOLDER_PATH;
+    }
 
     public void containsAFile(String filename, String contents) throws IOException {
         FileUtils.writeStringToFile(file(filename), contents);
@@ -26,6 +30,6 @@ public class FileSystemTester {
     }
 
     private File file(String filename) {
-        return new File(TEST_FOLDER_PATH, filename);
+        return new File(getTestFolderPath(), filename);
     }
 }
