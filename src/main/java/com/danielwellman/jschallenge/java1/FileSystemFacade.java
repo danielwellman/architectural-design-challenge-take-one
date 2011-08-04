@@ -6,10 +6,13 @@ public class FileSystemFacade implements IoFacade {
 
     private final String path;
 
+    public FileSystemFacade() {
+        this("test_folder");
+    }
+
     public FileSystemFacade(String path) {
         this.path = path;
     }
-
 
     public String readFile(String filename) {
         File file = fileAt(filename);

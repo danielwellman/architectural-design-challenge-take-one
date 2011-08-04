@@ -3,8 +3,8 @@ package com.danielwellman.jschallenge.java1.endtoend;
 import org.junit.Test;
 
 public class EndToEndTest {
-    private FileSystemTester fileSystem = new FileSystemTester();
-    private ApplicationRunner application = new ApplicationRunner(fileSystem);
+    private final FileSystemTester fileSystem = new FileSystemTester();
+    private final ApplicationRunner application = new ApplicationRunner();
 
     @Test
     public void convertsToRot13AndStoresToANewFile() throws Exception {
