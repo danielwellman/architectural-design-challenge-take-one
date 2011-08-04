@@ -1,11 +1,11 @@
 package com.danielwellman.jschallenge.java1;
 
 
-public class Rot13Converter {
+public class Rot13ConverterApplication {
     private IoFacade ioFacade;
     private Encoder encoder;
 
-    public Rot13Converter(IoFacade ioFacade, Encoder encoder) {
+    public Rot13ConverterApplication(IoFacade ioFacade, Encoder encoder) {
         this.ioFacade = ioFacade;
         this.encoder = encoder;
     }

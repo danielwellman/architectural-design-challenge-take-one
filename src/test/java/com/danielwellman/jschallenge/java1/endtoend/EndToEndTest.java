@@ -7,12 +7,12 @@ public class EndToEndTest {
     private ApplicationRunner application = new ApplicationRunner(fileSystem);
 
     @Test
-    public void convertsTextAsIsToANewFile() throws Exception {
+    public void convertsToRot13AndStoresToANewFile() throws Exception {
         fileSystem.containsAFile("in.txt", "The dog barks at midnight.");
 
         application.runUsing("in.txt", "out.txt");
 
-        fileSystem.hasCreatedAFile("out.txt", "The dog barks at midnight.");
+        fileSystem.hasCreatedAFile("out.txt", "Gur qbt onexf ng zvqavtug.");
     }
 
     // TODO test prints converted string to the console
