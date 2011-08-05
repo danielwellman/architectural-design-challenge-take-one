@@ -32,4 +32,10 @@ public class FileSystemTester {
     private File file(String filename) {
         return new File(getTestFolderPath(), filename);
     }
+
+    public void clearOutputFolder() throws IOException {
+        final File directory = new File(getTestFolderPath());
+        FileUtils.deleteDirectory(directory);
+        FileUtils.forceMkdir(directory);
+    }
 }
