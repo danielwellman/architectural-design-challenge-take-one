@@ -19,12 +19,13 @@ public class Rot13ConverterApplication {
     }
 
     public void convert(String inputFilename, String outputFilename) {
-        String source = ioFacade.readFile(inputFilename);
-        String encodedMessage = encoder.encode(source);
+        final Rot13Converter converter = new Rot13Converter(ioFacade, encoder);
+        converter.addListener(new ConsoleAppendingDecoderListener(output));
+        // Weird - mixing the construction of the object with a one-off temporal filename.
+        // ... seems like something is amiss here.
+        converter.addListener(new FileAppenderDecoderListener(ioFacade, outputFilename));
 
-        // Feels very procedural, thinking a set of listeners would help here
-        ioFacade.createFile(outputFilename, encodedMessage);
-        output.println(encodedMessage);
+        converter.convert(inputFilename);
     }
 
     public static void main(String... args) {
