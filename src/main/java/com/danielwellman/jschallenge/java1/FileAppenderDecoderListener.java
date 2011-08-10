@@ -1,16 +1,16 @@
 package com.danielwellman.jschallenge.java1;
 
 public class FileAppenderDecoderListener implements DecoderListener {
-    private final IoFacade ioFacade;
+    private final IoWriter ioWriter;
     private final String filename;
 
-    public FileAppenderDecoderListener(IoFacade ioFacade, String filename) {
-        this.ioFacade = ioFacade;
+    public FileAppenderDecoderListener(IoWriter ioWriter, String filename) {
+        this.ioWriter = ioWriter;
         this.filename = filename;
     }
 
     public void messageDecoded(String message) {
-        ioFacade.createFile(filename, message);
+        ioWriter.createFile(filename, message);
 
     }
 }
