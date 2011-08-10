@@ -1,5 +1,6 @@
 package com.danielwellman.jschallenge.java1.endtoend;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,6 +14,12 @@ public class EndToEndTest {
     @Before
     public void setUp() throws IOException {
         fileSystem.clearOutputFolder();
+        console.beginCapturingSystemOut();
+    }
+
+    @After
+    public void tearDown() {
+        console.restoreSystemOut();
     }
 
     @Test
@@ -28,7 +35,7 @@ public class EndToEndTest {
     public void printsConvertedStringToTheConsole() throws Exception {
         fileSystem.containsAFile("in.txt", "The dog barks at midnight.");
 
-        application.runUsing("in.txt", "out.txt", console);
+        application.runUsing("in.txt", "out.txt");
 
         console.hasDisplayed("Gur qbt onexf ng zvqavtug.");  // This method is a little weird - only works if you call specific run w/ console
     }
