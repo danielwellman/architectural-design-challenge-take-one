@@ -11,6 +11,5 @@ public class FileAppenderDecoderListener implements DecoderListener {
 
     public void messageDecoded(String message) {
         ioWriter.createFile(filename, message);
-
     }
 }
