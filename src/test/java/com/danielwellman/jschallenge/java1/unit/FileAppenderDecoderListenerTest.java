@@ -1,5 +1,7 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.unit;
 
+import com.danielwellman.jschallenge.java1.FileAppenderDecoderListener;
+import com.danielwellman.jschallenge.java1.IoFacade;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;

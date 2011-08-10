@@ -1,5 +1,7 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.unit;
 
+import com.danielwellman.jschallenge.java1.ConsoleAppendingDecoderListener;
+import com.danielwellman.jschallenge.java1.DecoderListener;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
