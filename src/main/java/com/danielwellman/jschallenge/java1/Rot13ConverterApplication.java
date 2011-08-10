@@ -1,16 +1,15 @@
 package com.danielwellman.jschallenge.java1;
 
 
-import java.io.PrintStream;
-
 public class Rot13ConverterApplication {
     private final IoFacade ioFacade;
     private final Encoder encoder;
-    private final PrintStream output = System.out;
+    private final ConsoleOut output;
 
-    public Rot13ConverterApplication(IoFacade ioFacade, Encoder encoder) {
+    public Rot13ConverterApplication(IoFacade ioFacade, Encoder encoder, ConsoleOut out) {
         this.ioFacade = ioFacade;
         this.encoder = encoder;
+        this.output = out;
     }
 
     public void convert(String inputFilename, String outputFilename) {
@@ -26,6 +25,6 @@ public class Rot13ConverterApplication {
     public static void main(String... args) {
         final String inputFilename = args[0];
         final String outputFilename = args[1];
-        new Rot13ConverterApplication(new FileSystemFacade(), new Rot13Encoder()).convert(inputFilename, outputFilename);
+        new Rot13ConverterApplication(new FileSystemFacade(), new Rot13Encoder(), new JavaSystemConsoleOut()).convert(inputFilename, outputFilename);
     }
 }

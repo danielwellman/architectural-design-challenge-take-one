@@ -1,15 +1,13 @@
 package com.danielwellman.jschallenge.java1;
 
-import java.io.PrintStream;
-
 public class ConsoleAppendingDecoderListener implements DecoderListener {
-    private final PrintStream printStream;
+    private final ConsoleOut out;
 
-    public ConsoleAppendingDecoderListener(PrintStream printStream) {
-        this.printStream = printStream;
+    public ConsoleAppendingDecoderListener(ConsoleOut out) {
+        this.out = out;
     }
 
     public void messageDecoded(String message) {
-        printStream.println(message);
+        out.println(message);
     }
 }

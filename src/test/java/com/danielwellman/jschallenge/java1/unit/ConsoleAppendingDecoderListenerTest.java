@@ -1,29 +1,28 @@
 package com.danielwellman.jschallenge.java1.unit;
 
 import com.danielwellman.jschallenge.java1.ConsoleAppendingDecoderListener;
+import com.danielwellman.jschallenge.java1.ConsoleOut;
 import com.danielwellman.jschallenge.java1.DecoderListener;
+import org.jmock.Expectations;
+import org.jmock.Mockery;
+import org.jmock.integration.junit4.JMock;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
-
+@RunWith(JMock.class)
 public class ConsoleAppendingDecoderListenerTest {
+    private final Mockery context = new Mockery();
+    private final ConsoleOut out = context.mock(ConsoleOut.class);
 
-    /**
-     * Interesting - I had to use containsString since
-     * I used println.  But should I care that this actually prints with a
-     * newline or not?
-     */
+
     @Test
     public void writesMessageToTheOutputStream() {
-        final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        final DecoderListener listener = new ConsoleAppendingDecoderListener(new PrintStream(out));
+        context.checking(new Expectations() {{
+            oneOf(out).println("Hello, world!");
+        }});
+
+        final DecoderListener listener = new ConsoleAppendingDecoderListener(out);
 
         listener.messageDecoded("Hello, world!");
-
-        assertThat(out.toString(), containsString("Hello, world!"));
     }
 }
