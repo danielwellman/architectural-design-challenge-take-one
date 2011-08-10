@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.io.IOException;
 
 public class EndToEndTest {
+    private static final String IRRELEVANT_FILENAME = "irrelevant";
+
     private final FileSystemTester fileSystem = new FileSystemTester();
     private final ApplicationRunner application = new ApplicationRunner();
     private final ConsoleCapturer console = new ConsoleCapturer();
@@ -35,7 +37,7 @@ public class EndToEndTest {
     public void printsConvertedStringToTheConsole() throws Exception {
         fileSystem.containsAFile("in.txt", "The dog barks at midnight.");
 
-        application.runUsing("in.txt", "out.txt");
+        application.runUsing("in.txt", IRRELEVANT_FILENAME);
 
         console.hasDisplayed("Gur qbt onexf ng zvqavtug.");  // This method is a little weird - only works if you call specific run w/ console
     }
