@@ -10,6 +10,7 @@ public class JavaFileSystemFacade implements IoFacade {
     private final String path;
 
     public JavaFileSystemFacade() {
+        // TODO Configure this per production or test environment
         this("test_folder");
     }
 
