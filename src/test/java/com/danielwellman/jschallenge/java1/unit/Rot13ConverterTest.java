@@ -12,7 +12,7 @@ public class Rot13ConverterTest {
     private final Mockery context = new Mockery();
     private final IoReader ioReader = context.mock(IoFacade.class);
     private final Encoder encoder = context.mock(Encoder.class);
-    private final Rot13Converter converter = new Rot13Converter(ioReader, encoder);
+    private final ConverterApplication converter = new ConverterApplication(ioReader, encoder);
 
     @Test
     public void readsTheFileAndAsksEncoderToEncodeItsContents() {

@@ -1,19 +1,19 @@
 package com.danielwellman.jschallenge.java1;
 
 
-public class Rot13ConverterApplication {
+public class Main {
     private final IoFacade ioFacade;
     private final Encoder encoder;
     private final ConsoleOut output;
 
-    public Rot13ConverterApplication(IoFacade ioFacade, Encoder encoder, ConsoleOut out) {
+    public Main(IoFacade ioFacade, Encoder encoder, ConsoleOut out) {
         this.ioFacade = ioFacade;
         this.encoder = encoder;
         this.output = out;
     }
 
     public void convert(String inputFilename, String outputFilename) {
-        final Rot13Converter converter = new Rot13Converter(ioFacade, encoder);
+        final ConverterApplication converter = new ConverterApplication(ioFacade, encoder);
         converter.addListener(new ConsoleAppendingDecoderListener(output));
         // Weird - mixing the construction of the object with a one-off temporal filename.
         // ... seems like something is amiss here.
@@ -25,6 +25,6 @@ public class Rot13ConverterApplication {
     public static void main(String... args) {
         final String inputFilename = args[0];
         final String outputFilename = args[1];
-        new Rot13ConverterApplication(new FileSystemFacade(), new Rot13Encoder(), new JavaSystemConsoleOut()).convert(inputFilename, outputFilename);
+        new Main(new FileSystemFacade(), new Rot13Encoder(), new JavaSystemConsoleOut()).convert(inputFilename, outputFilename);
     }
 }

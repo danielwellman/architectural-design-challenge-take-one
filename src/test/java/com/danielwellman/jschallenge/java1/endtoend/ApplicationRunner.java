@@ -1,11 +1,11 @@
 package com.danielwellman.jschallenge.java1.endtoend;
 
-import com.danielwellman.jschallenge.java1.Rot13ConverterApplication;
+import com.danielwellman.jschallenge.java1.Main;
 
 public class ApplicationRunner {
 
     public void runUsing(String inputFilename, String outputFilename) {
-        Rot13ConverterApplication.main(inputFilename, outputFilename);
+        Main.main(inputFilename, outputFilename);
     }
 
 }

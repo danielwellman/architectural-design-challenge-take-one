@@ -2,12 +2,12 @@ package com.danielwellman.jschallenge.java1;
 
 import java.util.ArrayList;
 
-public class Rot13Converter {
+public class ConverterApplication {
     private final IoReader ioReader;
     private final Encoder encoder;
     private final ArrayList<DecoderListener> listeners = new ArrayList<DecoderListener>();
 
-    public Rot13Converter(IoReader ioReader, Encoder encoder) {
+    public ConverterApplication(IoReader ioReader, Encoder encoder) {
         this.ioReader = ioReader;
         this.encoder = encoder;
     }
