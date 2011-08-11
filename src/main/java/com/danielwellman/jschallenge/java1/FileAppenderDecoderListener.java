@@ -1,15 +1,13 @@
 package com.danielwellman.jschallenge.java1;
 
 public class FileAppenderDecoderListener implements DecoderListener {
-    private final IoWriter ioWriter;
-    private final String filename;
+    private OutputWriter file;
 
-    public FileAppenderDecoderListener(IoWriter ioWriter, String filename) {
-        this.ioWriter = ioWriter;
-        this.filename = filename;
+    public FileAppenderDecoderListener(OutputWriter file) {
+        this.file = file;
     }
 
     public void messageDecoded(String message) {
-        ioWriter.createFile(filename, message);
+        file.println(message);
     }
 }

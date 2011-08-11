@@ -1,11 +1,12 @@
 package com.danielwellman.jschallenge.java1.javaio;
 
-import com.danielwellman.jschallenge.java1.IoFacade;
-import com.danielwellman.jschallenge.java1.IoFacadeException;
+import com.danielwellman.jschallenge.java1.FileSystemFacade;
+import com.danielwellman.jschallenge.java1.InputReader;
+import com.danielwellman.jschallenge.java1.OutputWriter;
 
-import java.io.*;
+import java.io.File;
 
-public class JavaFileSystemFacade implements IoFacade {
+public class JavaFileSystemFacade implements FileSystemFacade {
 
     private final String path;
 
@@ -18,49 +19,20 @@ public class JavaFileSystemFacade implements IoFacade {
         this.path = path;
     }
 
-    public String readFile(String filename) {
-        File file = fileAt(filename);
-        BufferedReader fileReader;
-        try {
-            fileReader = new BufferedReader(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            throw new IoFacadeException("File not found: " + e.getMessage());
-        }
-        try {
-            return fileReader.readLine();
-        } catch (IOException e) {
-            throw new IoFacadeException("Failed to read file: " + e.getMessage());
-        } finally {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                // Silently ignore closing errors?
-            }
-        }
-    }
-
-    public void createFile(String filename, String contents) {
-        File file = fileAt(filename);
-        FileWriter fileWriter;
-        try {
-            fileWriter = new FileWriter(file);
-        } catch (IOException e) {
-            throw new IoFacadeException("Could not create a file: " + e.getMessage());
-        }
-        try {
-            fileWriter.write(contents);
-        } catch (IOException e) {
-            throw new IoFacadeException("Could not write to file: " + e.getMessage());
-        } finally {
-            try {
-                fileWriter.close();
-            } catch (IOException e) {
-                // Silently ignore closing a file?
-            }
-        }
-    }
-
     private File fileAt(String filename) {
         return new File(path, filename);
+    }
+
+    public OutputWriter createFile(String filename) {
+        return new JavaOutputFile(pathForFile(filename));
+    }
+
+    private String pathForFile(String filename) {
+        // Dodgy...
+        return path + "/" + filename;
+    }
+
+    public InputReader openFileForRead(String filename) {
+        return new JavaReadOnlyFile(pathForFile(filename));
     }
 }

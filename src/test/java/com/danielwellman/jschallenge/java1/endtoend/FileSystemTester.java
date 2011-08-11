@@ -12,10 +12,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class FileSystemTester {
 
-    private static final String TEST_FOLDER_PATH = "test_folder";
+    private final String folderPath;
 
-    public String getTestFolderPath() {
-        return TEST_FOLDER_PATH;
+    public FileSystemTester(String path) {
+        this.folderPath = path;
+    }
+
+    private String getFolderPath() {
+        return folderPath;
     }
 
     public void containsAFile(String filename, String contents) throws IOException {
@@ -30,12 +34,13 @@ public class FileSystemTester {
     }
 
     private File file(String filename) {
-        return new File(getTestFolderPath(), filename);
+        return new File(getFolderPath(), filename);
     }
 
     public void clearOutputFolder() throws IOException {
-        final File directory = new File(getTestFolderPath());
+        final File directory = new File(getFolderPath());
         FileUtils.deleteDirectory(directory);
         FileUtils.forceMkdir(directory);
     }
+
 }

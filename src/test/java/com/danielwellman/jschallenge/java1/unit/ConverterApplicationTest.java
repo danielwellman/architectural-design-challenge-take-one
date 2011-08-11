@@ -1,6 +1,9 @@
 package com.danielwellman.jschallenge.java1.unit;
 
-import com.danielwellman.jschallenge.java1.*;
+import com.danielwellman.jschallenge.java1.ConverterApplication;
+import com.danielwellman.jschallenge.java1.DecoderListener;
+import com.danielwellman.jschallenge.java1.Encoder;
+import com.danielwellman.jschallenge.java1.InputReader;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
@@ -10,23 +13,22 @@ import org.junit.runner.RunWith;
 @RunWith(JMock.class)
 public class ConverterApplicationTest {
     private final Mockery context = new Mockery();
-    private final IoReader ioReader = context.mock(IoFacade.class);
     private final Encoder encoder = context.mock(Encoder.class);
-    private final ConverterApplication converter = new ConverterApplication(ioReader, encoder);
+    private final ConverterApplication converter = new ConverterApplication(encoder);
+
+    private final InputReader inputFile = context.mock(InputReader.class);
 
     @Test
     public void readsTheFileAndAsksEncoderToEncodeItsContents() {
-        final String inputFilename = "inputFilename";
         final String fileContents = "contents";
 
         context.checking(new Expectations() {{
-            allowing(ioReader).readFile(inputFilename);
+            allowing(inputFile).read();
             will(returnValue(fileContents));
-
             oneOf(encoder).encode(fileContents);
         }});
 
-        converter.convert(inputFilename);
+        converter.convert(inputFile);
     }
 
     @Test
@@ -35,7 +37,7 @@ public class ConverterApplicationTest {
         final String message = "decoded message";
 
         context.checking(new Expectations() {{
-            ignoring(ioReader);
+            ignoring(inputFile);
             allowing(encoder).encode(with(any(String.class)));
             will(returnValue(message));
 
@@ -43,6 +45,6 @@ public class ConverterApplicationTest {
         }});
         converter.addListener(listener);
 
-        converter.convert("irrelevant filename");
+        converter.convert(inputFile);
     }
 }

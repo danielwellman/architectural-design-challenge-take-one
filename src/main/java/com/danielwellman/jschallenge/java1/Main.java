@@ -5,24 +5,22 @@ import com.danielwellman.jschallenge.java1.javaio.JavaFileSystemFacade;
 import com.danielwellman.jschallenge.java1.javaio.JavaSystemConsoleOut;
 
 public class Main {
-    private final IoFacade ioFacade;
+    private final JavaFileSystemFacade fileSystemFacade;
     private final Encoder encoder;
-    private final ConsoleOut output;
+    private final OutputWriter output;
 
-    public Main(IoFacade ioFacade, Encoder encoder, ConsoleOut out) {
-        this.ioFacade = ioFacade;
+    public Main(JavaFileSystemFacade fileSystemFacade, Encoder encoder, OutputWriter out) {
+        this.fileSystemFacade = fileSystemFacade;
         this.encoder = encoder;
         this.output = out;
     }
 
     public void convert(String inputFilename, String outputFilename) {
-        final ConverterApplication converter = new ConverterApplication(ioFacade, encoder);
+        final ConverterApplication converter = new ConverterApplication(encoder);
         converter.addListener(new ConsoleAppendingDecoderListener(output));
-        // Weird - mixing the construction of the object with a one-off temporal filename.
-        // ... seems like something is amiss here.
-        converter.addListener(new FileAppenderDecoderListener(ioFacade, outputFilename));
+        converter.addListener(new FileAppenderDecoderListener(fileSystemFacade.createFile(outputFilename)));
 
-        converter.convert(inputFilename);
+        converter.convert(fileSystemFacade.openFileForRead(inputFilename));
     }
 
     public static void main(String... args) {

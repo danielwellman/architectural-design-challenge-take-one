@@ -9,7 +9,7 @@ import java.io.IOException;
 public class EndToEndTest {
     private static final String IRRELEVANT_FILENAME = "irrelevant";
 
-    private final FileSystemTester fileSystem = new FileSystemTester();
+    private final FileSystemTester fileSystem = new FileSystemTester("test_folder");
     private final ApplicationRunner application = new ApplicationRunner();
     private final ConsoleCapturer console = new ConsoleCapturer();
 

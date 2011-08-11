@@ -1,9 +1,9 @@
 package com.danielwellman.jschallenge.java1;
 
 public class ConsoleAppendingDecoderListener implements DecoderListener {
-    private final ConsoleOut out;
+    private final OutputWriter out;
 
-    public ConsoleAppendingDecoderListener(ConsoleOut out) {
+    public ConsoleAppendingDecoderListener(OutputWriter out) {
         this.out = out;
     }
 
