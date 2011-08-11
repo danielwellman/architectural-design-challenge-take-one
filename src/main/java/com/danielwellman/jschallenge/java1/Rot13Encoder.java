@@ -33,7 +33,4 @@ public class Rot13Encoder implements Encoder {
         return ('n' <= caseInsensitiveCharacter) && (caseInsensitiveCharacter <= 'z');
     }
 
-    private char rotate(char c, int offset) {
-        return (char) ((((c - offset) + 13) % LETTERS_IN_ALPHABET) + offset);
-    }
 }
