@@ -17,14 +17,20 @@ public class Rot13Encoder implements Encoder {
         return builder.toString();
     }
 
-    private char rot13Encode(char c) {
-        if (Character.isUpperCase(c)) {
-            return rotate(c, OFFSET_OF_UPPERCASE_A);
-        } else if (Character.isLowerCase(c)) {
-            return rotate(c, OFFSET_OF_LOWERCASE_A);
-        } else {
-            return c;
-        }
+    private char rot13Encode(char character) {
+        if (isLowerHalfOfAlphabet(character)) return (char) (character + 13);
+        else if (isUpperHalfOfAlphabet(Character.toLowerCase(character))) return (char) (character - 13);
+        else return character;
+    }
+
+    private boolean isLowerHalfOfAlphabet(char originalCharacter) {
+        final char caseInsensitiveCharacter = Character.toLowerCase(originalCharacter);
+        return ('a' <= caseInsensitiveCharacter) && (caseInsensitiveCharacter < 'n');
+    }
+
+    private boolean isUpperHalfOfAlphabet(char originalCharacter) {
+        final char caseInsensitiveCharacter = Character.toLowerCase(originalCharacter);
+        return ('n' <= caseInsensitiveCharacter) && (caseInsensitiveCharacter <= 'z');
     }
 
     private char rotate(char c, int offset) {
