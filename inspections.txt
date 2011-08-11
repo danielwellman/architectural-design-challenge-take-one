@@ -1,13 +1,7 @@
-To Do:
-- Write the configuration prod/test mechanism
-- Simplify Rot13 algorithm code.. mess of + - % and constants
-
 Some notes for verifying the solution:
 
 - No Java IO exceptions leak out of the IO facade layer
 - Minimal repetition of the folder names between test and production implementations
-- Clarify "Wrap your platform's console and file I/O methods as if each call actually required a dozen lines of code".
-  Does that mean "to the using client", or even *in* the implementing facade code?
 - Run FindBugs
 
 Later
