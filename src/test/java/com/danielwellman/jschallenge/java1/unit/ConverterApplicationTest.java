@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(JMock.class)
-public class Rot13ConverterTest {
+public class ConverterApplicationTest {
     private final Mockery context = new Mockery();
     private final IoReader ioReader = context.mock(IoFacade.class);
     private final Encoder encoder = context.mock(Encoder.class);
