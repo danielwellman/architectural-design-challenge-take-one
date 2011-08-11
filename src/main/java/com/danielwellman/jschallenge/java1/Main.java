@@ -1,6 +1,9 @@
 package com.danielwellman.jschallenge.java1;
 
 
+import com.danielwellman.jschallenge.java1.javaio.JavaFileSystemFacade;
+import com.danielwellman.jschallenge.java1.javaio.JavaSystemConsoleOut;
+
 public class Main {
     private final IoFacade ioFacade;
     private final Encoder encoder;
@@ -25,6 +28,6 @@ public class Main {
     public static void main(String... args) {
         final String inputFilename = args[0];
         final String outputFilename = args[1];
-        new Main(new FileSystemFacade(), new Rot13Encoder(), new JavaSystemConsoleOut()).convert(inputFilename, outputFilename);
+        new Main(new JavaFileSystemFacade(), new Rot13Encoder(), new JavaSystemConsoleOut()).convert(inputFilename, outputFilename);
     }
 }

@@ -1,16 +1,19 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.javaio;
+
+import com.danielwellman.jschallenge.java1.IoFacade;
+import com.danielwellman.jschallenge.java1.IoFacadeException;
 
 import java.io.*;
 
-public class FileSystemFacade implements IoFacade {
+public class JavaFileSystemFacade implements IoFacade {
 
     private final String path;
 
-    public FileSystemFacade() {
+    public JavaFileSystemFacade() {
         this("test_folder");
     }
 
-    public FileSystemFacade(String path) {
+    public JavaFileSystemFacade(String path) {
         this.path = path;
     }
 
