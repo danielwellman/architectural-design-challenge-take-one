@@ -28,8 +28,7 @@ public class JavaFileSystemFacade implements FileSystemFacade {
     }
 
     private String pathForFile(String filename) {
-        // Dodgy...
-        return path + "/" + filename;
+        return path + File.separator + filename;
     }
 
     public InputReader openFileForRead(String filename) {
