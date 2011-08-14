@@ -2,11 +2,6 @@ package com.danielwellman.jschallenge.java1;
 
 public class Rot13Encoder implements Encoder {
 
-    public static final int OFFSET_OF_UPPERCASE_A = 65;
-    public static final int OFFSET_OF_LOWERCASE_A = 97;
-
-    public static final int LETTERS_IN_ALPHABET = 26;
-
     public String encode(String input) {
         final StringBuilder builder = new StringBuilder(input.length());
 
