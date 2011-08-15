@@ -17,11 +17,13 @@ public class EndToEndTest {
     public void setUp() throws IOException {
         fileSystem.clearOutputFolder();
         console.beginCapturingSystemOut();
+        application.useTestMode();
     }
 
     @After
     public void tearDown() {
         console.restoreSystemOut();
+        application.resetRunMode();
     }
 
     @Test

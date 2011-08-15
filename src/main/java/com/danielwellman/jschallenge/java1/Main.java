@@ -15,7 +15,7 @@ public class Main {
         this.output = out;
     }
 
-    public void convert(String inputFilename, String outputFilename) {
+    public void run(String inputFilename, String outputFilename) {
         final ConverterApplication converter = new ConverterApplication(encoder);
         converter.addListener(new ConsoleAppendingDecoderListener(output));
         converter.addListener(new FileAppenderDecoderListener(fileSystemFacade.createFile(outputFilename)));
@@ -26,6 +26,7 @@ public class Main {
     public static void main(String... args) {
         final String inputFilename = args[0];
         final String outputFilename = args[1];
-        new Main(new JavaFileSystemFacade(), new Rot13Encoder(), new JavaSystemConsoleOut()).convert(inputFilename, outputFilename);
+        final String fileSystemPath = new Configuration().path();
+        new Main(new JavaFileSystemFacade(fileSystemPath), new Rot13Encoder(), new JavaSystemConsoleOut()).run(inputFilename, outputFilename);
     }
 }

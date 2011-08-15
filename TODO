@@ -1,1 +1,1 @@
-- Create prod/test configuration mechanism which reads from different directories
+- Handle command-line argument errors (e.g. wrong number of arguments)

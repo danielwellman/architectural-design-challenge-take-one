@@ -10,11 +10,6 @@ public class JavaFileSystemFacade implements FileSystemFacade {
 
     private final String path;
 
-    public JavaFileSystemFacade() {
-        // TODO Configure this per production or test environment
-        this("test_folder");
-    }
-
     public JavaFileSystemFacade(String path) {
         this.path = path;
     }
