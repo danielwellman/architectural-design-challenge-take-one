@@ -25,10 +25,13 @@ public class JavaFileSystemTests {
 
     @Test
     public void writesContentsToAFile() throws IOException {
-        OutputWriter file = facade.createFile("filename.txt");
-        file.println("Sample test message.");
+        final String filename = "filename.txt";
+        final String message = "Sample test message.";
 
-        testFileSystem.containsAFile("filename.txt", "Sample test message.");
+        OutputWriter file = facade.createFile(filename);
+        file.println(message);
+
+        testFileSystem.containsAFile(filename, message);
     }
 
     @Test
