@@ -19,10 +19,6 @@ public class JavaFileSystemFacade implements FileSystemFacade {
         this.path = path;
     }
 
-    private File fileAt(String filename) {
-        return new File(path, filename);
-    }
-
     public OutputWriter createFile(String filename) {
         return new JavaOutputFile(pathForFile(filename));
     }
