@@ -1,7 +1,7 @@
 package com.danielwellman.jschallenge.java1;
 
 public class FileAppenderDecoderListener implements DecoderListener {
-    private OutputWriter file;
+    private final OutputWriter file;
 
     public FileAppenderDecoderListener(OutputWriter file) {
         this.file = file;

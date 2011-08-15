@@ -5,11 +5,11 @@ import com.danielwellman.jschallenge.java1.javaio.JavaFileSystemFacade;
 import com.danielwellman.jschallenge.java1.javaio.JavaSystemConsoleOut;
 
 public class Main {
-    private final JavaFileSystemFacade fileSystemFacade;
+    private final FileSystemFacade fileSystemFacade;
     private final Encoder encoder;
     private final OutputWriter output;
 
-    public Main(JavaFileSystemFacade fileSystemFacade, Encoder encoder, OutputWriter out) {
+    public Main(FileSystemFacade fileSystemFacade, Encoder encoder, OutputWriter out) {
         this.fileSystemFacade = fileSystemFacade;
         this.encoder = encoder;
         this.output = out;

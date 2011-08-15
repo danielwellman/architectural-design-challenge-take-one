@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.endsWith;
 import static org.junit.Assert.assertThat;
 
 public class JavaSystemConsoleOutTest {
-    public static final String NEWLINE = "\n";
+    private static final String NEWLINE = "\n";
     private final ByteArrayOutputStream capturingOut = new ByteArrayOutputStream();
 
     private PrintStream originalSystemOut;
