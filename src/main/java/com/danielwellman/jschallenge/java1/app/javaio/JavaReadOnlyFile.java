@@ -1,4 +1,4 @@
-package com.danielwellman.jschallenge.java1.javaio;
+package com.danielwellman.jschallenge.java1.app.javaio;
 
 import com.danielwellman.jschallenge.java1.InputReader;
 import com.danielwellman.jschallenge.java1.IoFacadeException;

@@ -1,6 +1,6 @@
 package com.danielwellman.jschallenge.java1.integration;
 
-import com.danielwellman.jschallenge.java1.javaio.JavaSystemConsoleOut;
+import com.danielwellman.jschallenge.java1.app.javaio.JavaSystemConsoleOut;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

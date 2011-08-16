@@ -2,8 +2,8 @@ package com.danielwellman.jschallenge.java1.integration;
 
 import com.danielwellman.jschallenge.java1.InputReader;
 import com.danielwellman.jschallenge.java1.OutputWriter;
+import com.danielwellman.jschallenge.java1.app.javaio.JavaFileSystemFacade;
 import com.danielwellman.jschallenge.java1.endtoend.FileSystemTester;
-import com.danielwellman.jschallenge.java1.javaio.JavaFileSystemFacade;
 import org.junit.Before;
 import org.junit.Test;
 

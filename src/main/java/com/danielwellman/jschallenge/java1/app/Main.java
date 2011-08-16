@@ -5,8 +5,8 @@ import com.danielwellman.jschallenge.java1.ConverterApplication;
 import com.danielwellman.jschallenge.java1.Encoder;
 import com.danielwellman.jschallenge.java1.FileSystemFacade;
 import com.danielwellman.jschallenge.java1.OutputWriter;
-import com.danielwellman.jschallenge.java1.javaio.JavaFileSystemFacade;
-import com.danielwellman.jschallenge.java1.javaio.JavaSystemConsoleOut;
+import com.danielwellman.jschallenge.java1.app.javaio.JavaFileSystemFacade;
+import com.danielwellman.jschallenge.java1.app.javaio.JavaSystemConsoleOut;
 
 public class Main {
     private final FileSystemFacade fileSystemFacade;
