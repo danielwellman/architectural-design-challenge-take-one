@@ -1,5 +1,6 @@
 package com.danielwellman.jschallenge.java1.unit;
 
+import com.danielwellman.jschallenge.java1.DecoderListener;
 import com.danielwellman.jschallenge.java1.OutputWriter;
 import com.danielwellman.jschallenge.java1.app.FileAppenderDecoderListener;
 import org.jmock.Expectations;
@@ -22,7 +23,7 @@ public class FileAppenderDecoderListenerTest {
             oneOf(file).println(message);
         }});
 
-        final FileAppenderDecoderListener listener = new FileAppenderDecoderListener(file);
+        final DecoderListener listener = new FileAppenderDecoderListener(file);
         listener.messageDecoded(message);
     }
 }

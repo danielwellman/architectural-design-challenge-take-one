@@ -1,5 +1,6 @@
 package com.danielwellman.jschallenge.java1.integration;
 
+import com.danielwellman.jschallenge.java1.FileSystemFacade;
 import com.danielwellman.jschallenge.java1.InputReader;
 import com.danielwellman.jschallenge.java1.OutputWriter;
 import com.danielwellman.jschallenge.java1.app.javaio.JavaFileSystemFacade;
@@ -16,7 +17,7 @@ public class JavaFileSystemTests {
 
     private static final String SYSTEM_TEST_FOLDER = "systemTestFolder";
     private final FileSystemTester testFileSystem = new FileSystemTester(SYSTEM_TEST_FOLDER);
-    private final JavaFileSystemFacade facade = new JavaFileSystemFacade(SYSTEM_TEST_FOLDER);
+    private final FileSystemFacade facade = new JavaFileSystemFacade(SYSTEM_TEST_FOLDER);
 
     @Before
     public void emptyFolder() throws IOException {

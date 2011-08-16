@@ -1,5 +1,6 @@
 package com.danielwellman.jschallenge.java1.integration;
 
+import com.danielwellman.jschallenge.java1.OutputWriter;
 import com.danielwellman.jschallenge.java1.app.javaio.JavaSystemConsoleOut;
 import org.junit.After;
 import org.junit.Before;
@@ -17,7 +18,7 @@ public class JavaSystemConsoleOutTest {
     private final ByteArrayOutputStream capturingOut = new ByteArrayOutputStream();
 
     private PrintStream originalSystemOut;
-    private final JavaSystemConsoleOut out = new JavaSystemConsoleOut();
+    private final OutputWriter out = new JavaSystemConsoleOut();
 
     @Before
     public void captureSystemOut() {

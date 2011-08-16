@@ -1,5 +1,6 @@
 package com.danielwellman.jschallenge.java1.unit;
 
+import com.danielwellman.jschallenge.java1.Encoder;
 import com.danielwellman.jschallenge.java1.app.Rot13Encoder;
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ import static org.junit.Assert.assertThat;
 
 public class Rot13EncoderTest {
 
-    private final Rot13Encoder encoder = new Rot13Encoder();
+    private final Encoder encoder = new Rot13Encoder();
 
     @Test
     public void convertsASingleCharacterByAdding13Mod26AsciiPositions() {

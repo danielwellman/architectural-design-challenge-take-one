@@ -1,10 +1,11 @@
 package com.danielwellman.jschallenge.java1;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ConverterApplication {
     private final Encoder encoder;
-    private final ArrayList<DecoderListener> listeners = new ArrayList<DecoderListener>();
+    private final Collection<DecoderListener> listeners = new ArrayList<DecoderListener>();
 
     public ConverterApplication(Encoder encoder) {
         this.encoder = encoder;
