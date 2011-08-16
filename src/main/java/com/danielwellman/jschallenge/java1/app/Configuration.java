@@ -1,4 +1,4 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.app;
 
 public class Configuration {
 

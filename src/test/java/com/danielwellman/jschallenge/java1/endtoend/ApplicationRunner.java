@@ -1,6 +1,6 @@
 package com.danielwellman.jschallenge.java1.endtoend;
 
-import com.danielwellman.jschallenge.java1.Main;
+import com.danielwellman.jschallenge.java1.app.Main;
 import com.danielwellman.jschallenge.java1.unit.ConfigurationTest;
 
 public class ApplicationRunner {

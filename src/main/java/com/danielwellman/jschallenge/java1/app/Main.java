@@ -1,6 +1,10 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.app;
 
 
+import com.danielwellman.jschallenge.java1.ConverterApplication;
+import com.danielwellman.jschallenge.java1.Encoder;
+import com.danielwellman.jschallenge.java1.FileSystemFacade;
+import com.danielwellman.jschallenge.java1.OutputWriter;
 import com.danielwellman.jschallenge.java1.javaio.JavaFileSystemFacade;
 import com.danielwellman.jschallenge.java1.javaio.JavaSystemConsoleOut;
 

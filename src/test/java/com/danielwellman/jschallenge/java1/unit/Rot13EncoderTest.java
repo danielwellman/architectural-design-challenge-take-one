@@ -1,6 +1,6 @@
 package com.danielwellman.jschallenge.java1.unit;
 
-import com.danielwellman.jschallenge.java1.Rot13Encoder;
+import com.danielwellman.jschallenge.java1.app.Rot13Encoder;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;

@@ -1,4 +1,6 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.app;
+
+import com.danielwellman.jschallenge.java1.Encoder;
 
 public class Rot13Encoder implements Encoder {
 

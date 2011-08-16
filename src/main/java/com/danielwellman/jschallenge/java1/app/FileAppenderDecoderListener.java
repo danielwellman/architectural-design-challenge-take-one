@@ -1,4 +1,7 @@
-package com.danielwellman.jschallenge.java1;
+package com.danielwellman.jschallenge.java1.app;
+
+import com.danielwellman.jschallenge.java1.DecoderListener;
+import com.danielwellman.jschallenge.java1.OutputWriter;
 
 public class FileAppenderDecoderListener implements DecoderListener {
     private final OutputWriter file;

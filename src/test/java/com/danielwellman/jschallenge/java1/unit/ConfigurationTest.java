@@ -1,6 +1,6 @@
 package com.danielwellman.jschallenge.java1.unit;
 
-import com.danielwellman.jschallenge.java1.Configuration;
+import com.danielwellman.jschallenge.java1.app.Configuration;
 import org.junit.Before;
 import org.junit.Test;
 
