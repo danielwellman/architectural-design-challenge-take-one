@@ -6,6 +6,7 @@ So far, this represents a solution to Part One as described in the challenge.
 Exploring the Solution
 ======================
 The production application entry point is good place to start: com.danielwellman.jschallenge.java1.app.Main
+
 All screen and file output is coordinated through a system of listeners (DecoderListener).  The
 com.danielwellman.jschallenge.java1.ConverterApplication is a general-purpose implementation
 which reads an input source, decodes the message, and notifies all interested listeners that
