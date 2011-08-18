@@ -2,3 +2,23 @@ This is my first attempt at a solution for James Shore's "An Architectural Desig
 See the problem description at http://jamesshore.com/Blog/Architectural-Design-Challenge.html
 
 So far, this represents a solution to Part One as described in the challenge.
+
+Exploring the Solution
+======================
+The production application entry point is good place to start: com.danielwellman.jschallenge.java1.app.Main
+All screen and file output is coordinated through a system of listeners (DecoderListener).  The
+com.danielwellman.jschallenge.java1.ConverterApplication is a general-purpose implementation
+which reads an input source, decodes the message, and notifies all interested listeners that
+a message has been decoded.  The Rot13-specific algorithm and Java IO listeners live in the package  
+com.danielwellman.jschallenge.java1.app.
+
+I started writing this solution with an end-to-end test, com.danielwellman.jschallenge.java1.endtoend.EndToEndTest.
+Unit tests and focused integration tests followed: see the unit and integration packages in the test sources.
+
+Packaging
+=========
+- com.danielwellman.jschallenge.java1 contains general-purpose interfaces and implementations
+- com.danielwellman.jschallenge.java1.app contains the Rot13-specific implementations: the
+  listeners that write to files and console, and the Main class which wires everything together.
+- com.danielwellman.jschallenge.java1.app.javaio contains Java-specific implementations of the
+  IO interfaces for files and console interaction.
