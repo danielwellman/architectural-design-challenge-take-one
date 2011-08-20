@@ -23,8 +23,7 @@ public class ConverterApplicationTest {
         final String fileContents = "contents";
 
         context.checking(new Expectations() {{
-            allowing(inputFile).read();
-            will(returnValue(fileContents));
+            allowing(inputFile).read(); will(returnValue(fileContents));
             oneOf(encoder).encode(fileContents);
         }});
 
@@ -38,8 +37,7 @@ public class ConverterApplicationTest {
 
         context.checking(new Expectations() {{
             ignoring(inputFile);
-            allowing(encoder).encode(with(any(String.class)));
-            will(returnValue(message));
+            allowing(encoder).encode(with(any(String.class))); will(returnValue(message));
 
             oneOf(listener).messageDecoded(message);
         }});
