@@ -41,7 +41,7 @@ public class EndToEndTest {
 
         application.runUsing("in.txt", IRRELEVANT_FILENAME);
 
-        console.hasDisplayed("Gur qbt onexf ng zvqavtug.");  // This method is a little weird - only works if you call specific run w/ console
+        console.hasDisplayed("Gur qbt onexf ng zvqavtug.");
     }
 
     // TODO Test: Incorrect command line arguments, parses error?
