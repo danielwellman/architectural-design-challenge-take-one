@@ -1,8 +1,8 @@
 package com.danielwellman.jschallenge.java1.unit;
 
 import com.danielwellman.jschallenge.java1.ConverterApplication;
-import com.danielwellman.jschallenge.java1.DecoderListener;
 import com.danielwellman.jschallenge.java1.Encoder;
+import com.danielwellman.jschallenge.java1.EncoderListener;
 import com.danielwellman.jschallenge.java1.InputReader;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -31,15 +31,15 @@ public class ConverterApplicationTest {
     }
 
     @Test
-    public void notifiesTheListenersWhenAFileIsDecoded() {
-        final DecoderListener listener = context.mock(DecoderListener.class);
-        final String message = "decoded message";
+    public void notifiesTheListenersWhenAFileIsEncoded() {
+        final EncoderListener listener = context.mock(EncoderListener.class);
+        final String message = "encoded message";
 
         context.checking(new Expectations() {{
             ignoring(inputFile);
             allowing(encoder).encode(with(any(String.class))); will(returnValue(message));
 
-            oneOf(listener).messageDecoded(message);
+            oneOf(listener).messageEncoded(message);
         }});
         converter.addListener(listener);
 

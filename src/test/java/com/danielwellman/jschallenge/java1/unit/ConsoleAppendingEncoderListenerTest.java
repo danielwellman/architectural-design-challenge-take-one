@@ -1,8 +1,8 @@
 package com.danielwellman.jschallenge.java1.unit;
 
-import com.danielwellman.jschallenge.java1.DecoderListener;
+import com.danielwellman.jschallenge.java1.EncoderListener;
 import com.danielwellman.jschallenge.java1.OutputWriter;
-import com.danielwellman.jschallenge.java1.app.ConsoleAppendingDecoderListener;
+import com.danielwellman.jschallenge.java1.app.ConsoleAppendingEncoderListener;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(JMock.class)
-public class ConsoleAppendingDecoderListenerTest {
+public class ConsoleAppendingEncoderListenerTest {
     private final Mockery context = new Mockery();
     private final OutputWriter out = context.mock(OutputWriter.class);
 
@@ -21,8 +21,8 @@ public class ConsoleAppendingDecoderListenerTest {
             oneOf(out).println("Hello, world!");
         }});
 
-        final DecoderListener listener = new ConsoleAppendingDecoderListener(out);
+        final EncoderListener listener = new ConsoleAppendingEncoderListener(out);
 
-        listener.messageDecoded("Hello, world!");
+        listener.messageEncoded("Hello, world!");
     }
 }

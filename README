@@ -7,10 +7,10 @@ Exploring the Solution
 ======================
 The production application entry point is good place to start: com.danielwellman.jschallenge.java1.app.Main
 
-All screen and file output is coordinated through a system of listeners (DecoderListener).  The
+All screen and file output is coordinated through a system of listeners (EncoderListener).  The
 com.danielwellman.jschallenge.java1.ConverterApplication is a general-purpose implementation
-which reads an input source, decodes the message, and notifies all interested listeners that
-a message has been decoded.  The Rot13-specific algorithm and Java IO listeners live in the package  
+which reads an input source, encodes the message, and notifies all interested listeners that
+a message has been encoded.  The Rot13-specific algorithm and Java IO listeners live in the package
 com.danielwellman.jschallenge.java1.app.
 
 I started writing this solution with an end-to-end test, com.danielwellman.jschallenge.java1.endtoend.EndToEndTest.

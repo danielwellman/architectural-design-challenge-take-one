@@ -21,8 +21,8 @@ public class Main {
 
     public void run(String inputFilename, String outputFilename) {
         final ConverterApplication converter = new ConverterApplication(encoder);
-        converter.addListener(new ConsoleAppendingDecoderListener(output));
-        converter.addListener(new FileAppenderDecoderListener(fileSystemFacade.createFile(outputFilename)));
+        converter.addListener(new ConsoleAppendingEncoderListener(output));
+        converter.addListener(new FileAppenderEncoderListener(fileSystemFacade.createFile(outputFilename)));
 
         converter.convert(fileSystemFacade.openFileForRead(inputFilename));
     }
